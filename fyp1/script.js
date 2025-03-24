@@ -1,12 +1,21 @@
-const wrapper = document.querySelector('.wrapper');
-const registerLink = document.querySelector('.register-link');
-const loginLink = document.querySelector('.login-link');
-const resetLink = document.querySelector('.reset-link');
+document.getElementById("profile-btn").addEventListener("click", function() {
+    document.getElementById("dropdown-menu").classList.toggle("hidden");
+});
 
-registerLink.onclick = () => {
-  wrapper.classList.add('active');
+document.addEventListener("click", function(event) {
+    let profileDropdown = document.getElementById("profile-btn");
+    let dropdownMenu = document.getElementById("dropdown-menu");
+
+    if (!profileDropdown.contains(event.target) && !dropdownMenu.contains(event.target)) {
+        dropdownMenu.classList.add("hidden");
+    }
+});
+
+function handleLogout() {
+    localStorage.removeItem("username"); 
+    alert("Logged out successfully!");
+    window.location.href = "index.php"; 
 }
 
-loginLink.onclick = () => {
-  wrapper.classList.remove('active');
-}
+document.getElementById("dropdown-logout").addEventListener("click", handleLogout);
+document.getElementById("sidebar-logout").addEventListener("click", handleLogout);

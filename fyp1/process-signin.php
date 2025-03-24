@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               //echo "Login successful.";
                echo "<script type='text/javascript'>
                         alert('Login successful.');
-                        window.location.href = 'dashboard.php';
+                        window.location.href = 'userdashboard.php';
                       </script>";
               // start a session and store user information
               session_start();
